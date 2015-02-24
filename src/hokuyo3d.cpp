@@ -64,12 +64,12 @@ public:
                 cloud.points.push_back(point);
                 cloud.channels[0].values.push_back(points[i].i);
             }
-            // Convert PointCloud to PointCloud2
-            convertPointCloudToPointCloud2(cloud, cloud2);
             // Publish frame
             if(range_header.frame != frame)
             {
                 pubPc.publish(cloud);
+                // Convert PointCloud to PointCloud2
+                convertPointCloudToPointCloud2(cloud, cloud2);
                 pubPc2.publish(cloud2);
 
                 field = range_header.field;
@@ -226,7 +226,7 @@ private:
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "hokuyo3d");
+    ros::init(argc, argv, "hokuyo3d_pc_pc2");
     hokuyo3d_node node;
 
     ros::Rate wait(200);
