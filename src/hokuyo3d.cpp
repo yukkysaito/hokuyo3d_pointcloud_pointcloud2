@@ -226,7 +226,7 @@ private:
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "hokuyo3d_pc_pc2");
+    ros::init(argc, argv, "hokuyo3d_pointcloud_pointcloud2");
     hokuyo3d_node node;
 
     ros::Rate wait(200);
